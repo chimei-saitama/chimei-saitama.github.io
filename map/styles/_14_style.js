@@ -9,19 +9,20 @@ var style__14 = function(feature, resolution){
     
     var labelText = ""; 
     var value = feature.get("");
-    var labelFont = "10px, sans-serif";
-    var labelFill = "#000000";
+    var labelFont = "18.2px \'Open Sans\', sans-serif";
+    var labelFill = "#007f00";
     var bufferColor = "";
     var bufferWidth = 0;
     var textAlign = "left";
     var offsetX = 0;
     var offsetY = 0;
-    var placement = 'line';
-    if ("" !== null) {
-        labelText = String("");
+    var placement = 'point';
+    if (feature.get("name") !== null && resolution > 0 && resolution < 7) {
+        labelText = String(feature.get("name"));
     }
     var style = [ new ol.style.Style({
-        stroke: new ol.style.Stroke({color: 'rgba(0,127,0,1.0)', lineDash: null, lineCap: 'square', lineJoin: 'bevel', width: 2.508}),
+        image: new ol.style.Circle({radius: 4.0 + size,
+            displacement: [0, 0],  fill: new ol.style.Fill({color: 'rgba(133,182,111,0.0)'})}),
         text: createTextStyle(feature, resolution, labelText, labelFont,
                               labelFill, placement, bufferColor,
                               bufferWidth)
