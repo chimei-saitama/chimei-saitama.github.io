@@ -1,19 +1,30 @@
 var wms_layers = [];
 
-var format__0 = new ol.format.GeoJSON();
-var features__0 = format__0.readFeatures(json__0, 
+
+        var lyr__0 = new ol.layer.Tile({
+            'title': '地理院地図（淡色地図）',
+            'opacity': 0.500000,
+            
+            
+            source: new ol.source.XYZ({
+            attributions: ' ',
+                url: 'https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png'
+            })
+        });
+var format__1 = new ol.format.GeoJSON();
+var features__1 = format__1.readFeatures(json__1, 
             {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'});
-var jsonSource__0 = new ol.source.Vector({
+var jsonSource__1 = new ol.source.Vector({
     attributions: ' ',
 });
-jsonSource__0.addFeatures(features__0);
-var lyr__0 = new ol.layer.Vector({
+jsonSource__1.addFeatures(features__1);
+var lyr__1 = new ol.layer.Vector({
                 declutter: false,
-                source:jsonSource__0, 
-                style: style__0,
-                popuplayertitle: '市町村名',
-                interactive: true,
-                title: '<img src="styles/legend/_0.png" /> 市町村名'
+                source:jsonSource__1, 
+                style: style__1,
+                popuplayertitle: '市町村界（町村制以前）',
+                interactive: false,
+                title: '<img src="styles/legend/_1.png" /> 市町村界（町村制以前）'
             });
 var group_ = new ol.layer.Group({
                                 layers: [],
@@ -32,11 +43,11 @@ var group_ = new ol.layer.Group({
                                 fold: 'open',
                                 title: '谷田村'});
 
-lyr__0.setVisible(true);
-var layersList = [lyr__0];
-lyr__0.set('fieldAliases', {'id': 'id', 'name': 'name', 'start': 'start', 'end': 'end', 'info': 'info', });
-lyr__0.set('fieldImages', {'id': 'TextEdit', 'name': 'TextEdit', 'start': 'Range', 'end': 'Range', 'info': 'TextEdit', });
-lyr__0.set('fieldLabels', {'id': 'hidden field', 'name': 'no label', 'start': 'hidden field', 'end': 'hidden field', 'info': 'no label', });
-lyr__0.on('precompose', function(evt) {
+lyr__0.setVisible(true);lyr__1.setVisible(true);
+var layersList = [lyr__0,lyr__1];
+lyr__1.set('fieldAliases', {'id': 'id', 'start': 'start', 'end': 'end', });
+lyr__1.set('fieldImages', {'id': 'TextEdit', 'start': 'Range', 'end': 'Range', });
+lyr__1.set('fieldLabels', {'id': 'no label', 'start': 'no label', 'end': 'no label', });
+lyr__1.on('precompose', function(evt) {
     evt.context.globalCompositeOperation = 'normal';
 });
