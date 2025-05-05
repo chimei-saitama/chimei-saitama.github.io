@@ -9,15 +9,15 @@ var style__0 = function(feature, resolution){
     
     var labelText = ""; 
     var value = feature.get("");
-    var labelFont = "13.0px \'Open Sans\', sans-serif";
-    var labelFill = "#ff0000";
+    var labelFont = "23.400000000000002px \'Open Sans\', sans-serif";
+    var labelFill = "#007f00";
     var bufferColor = "";
     var bufferWidth = 0;
     var textAlign = "left";
     var offsetX = 0;
     var offsetY = 0;
     var placement = 'point';
-    if (feature.get("name") !== null && resolution > 0 && resolution < 7) {
+    if (feature.get("name") !== null && resolution > 0 && resolution < 14) {
         labelText = String(feature.get("name"));
     }
     var style = [ new ol.style.Style({
