@@ -264,7 +264,7 @@ lyr__6.set('fieldAliases', {'id': 'id', 'start': 'start', 'end': 'end', });
 lyr__7.set('fieldAliases', {'id': 'id', 'name': 'name', 'start': 'start', 'end': 'end', 'info': 'info', });
 lyr__8.set('fieldAliases', {'id': 'id', 'start': 'start', 'end': 'end', 'info': 'info', });
 lyr__9.set('fieldAliases', {'id': 'id', 'start': 'start', 'end': 'end', });
-lyr__10.set('fieldAliases', {'id': 'id', 'name': 'name', 'start': 'start', 'end': 'end', 'info': 'info', });
+lyr__10.set('fieldAliases', {'id': 'id', 'name': 'name', 'start': 'start', 'end': 'end', 'info1': 'info1', 'info2': 'info2', });
 lyr__11.set('fieldAliases', {'id': 'id', 'start': 'start', 'end': 'end', });
 lyr__12.set('fieldAliases', {'id': 'id', 'start': 'start', 'end': 'end', 'info': 'info', });
 lyr__13.set('fieldAliases', {'id': 'id', 'start': 'start', 'end': 'end', });
@@ -279,7 +279,7 @@ lyr__6.set('fieldImages', {'id': 'TextEdit', 'start': 'Range', 'end': 'Range', }
 lyr__7.set('fieldImages', {'id': 'TextEdit', 'name': 'TextEdit', 'start': 'Range', 'end': 'Range', 'info': 'TextEdit', });
 lyr__8.set('fieldImages', {'id': 'TextEdit', 'start': 'Range', 'end': 'Range', 'info': '', });
 lyr__9.set('fieldImages', {'id': 'TextEdit', 'start': 'Range', 'end': 'Range', });
-lyr__10.set('fieldImages', {'id': 'TextEdit', 'name': 'TextEdit', 'start': 'Range', 'end': 'Range', 'info': 'TextEdit', });
+lyr__10.set('fieldImages', {'id': 'TextEdit', 'name': 'TextEdit', 'start': 'Range', 'end': 'Range', 'info1': '', 'info2': '', });
 lyr__11.set('fieldImages', {'id': 'TextEdit', 'start': 'Range', 'end': 'Range', });
 lyr__12.set('fieldImages', {'id': 'TextEdit', 'start': 'Range', 'end': 'Range', 'info': '', });
 lyr__13.set('fieldImages', {'id': 'TextEdit', 'start': 'Range', 'end': 'Range', });
@@ -294,7 +294,7 @@ lyr__6.set('fieldLabels', {'id': 'no label', 'start': 'no label', 'end': 'no lab
 lyr__7.set('fieldLabels', {'id': 'hidden field', 'name': 'no label', 'start': 'hidden field', 'end': 'hidden field', 'info': 'no label', });
 lyr__8.set('fieldLabels', {'id': 'hidden field', 'start': 'hidden field', 'end': 'hidden field', 'info': 'no label', });
 lyr__9.set('fieldLabels', {'id': 'no label', 'start': 'no label', 'end': 'no label', });
-lyr__10.set('fieldLabels', {'id': 'hidden field', 'name': 'no label', 'start': 'hidden field', 'end': 'hidden field', 'info': 'no label', });
+lyr__10.set('fieldLabels', {'id': 'hidden field', 'name': 'no label', 'start': 'hidden field', 'end': 'hidden field', 'info1': 'no label', 'info2': 'no label', });
 lyr__11.set('fieldLabels', {'id': 'no label', 'start': 'no label', 'end': 'no label', });
 lyr__12.set('fieldLabels', {'id': 'hidden field', 'start': 'hidden field', 'end': 'hidden field', 'info': 'no label', });
 lyr__13.set('fieldLabels', {'id': 'no label', 'start': 'no label', 'end': 'no label', });
