@@ -75,14 +75,15 @@
         </div>
     </div>
 
+    <!-- Google Fonts (Noto Sans JP) 読み込み -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+
     <style>
         #infoPanel {
-            position: fixed;
-            /* 常に画面上の決まった場所に表示 */
+            position: fixed; /* 常に画面上の決まった場所に表示 */
             top: 10px;
             left: 70px;
-            z-index: 1000;
-            /* 地図やポップアップより前面に */
+            z-index: 1000; /* 地図やポップアップより前面に */
             background-color: white;
             border: 1px solid #ccc;
             padding: 10px;
@@ -95,32 +96,25 @@
         .inputRow {
             display: flex;
             align-items: center;
-            gap: 15px;
-            /* 要素間の隙間 */
+            gap: 15px; /* 要素間の隙間 */
         }
 
         .inputRow input[type="range"] {
-            flex: 1;
-            /* スライダーは幅広く */
+            flex: 1; /* スライダーは幅広く */
         }
 
         .inputRow input[type="number"] {
             width: 50px;
         }
 
-        /* ポップアップの幅を広くする */
         .ol-popup {
-            width: 300px;
+            width: 300px; /* ポップアップの幅を広くする */
+            font-family: 'Noto Sans JP', sans-serif; /* IVSに対応した Noto Sans JP をデフォルトに */
         }
-    </style>
 
-    <!-- Google Fonts 読み込み -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP&display=swap" rel="stylesheet">
-
-    <style>
-        /* 異体字だけNoto Serif JPで表示 */
-        .ivd {
-          font-family: 'Noto Serif JP', serif;
+     	/* Noto Sans JP で表示できないものだけ IPAmj明朝 で表示 */
+        .ipa {
+        	font-family: "IPAmj明朝", "IPAmjMincho", serif;
         }
     </style>
     <!-- ここまで-->
