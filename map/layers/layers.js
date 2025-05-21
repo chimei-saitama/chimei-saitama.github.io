@@ -262,12 +262,8 @@ var group_ = new ol.layer.Group({
                                 title: '尾間木村'});
 var group_ = new ol.layer.Group({
                                 layers: [],
-                                fold: 'close',
-                                title: '六辻村'});
-var group_ = new ol.layer.Group({
-                                layers: [],
                                 fold: 'open',
-                                title: '与野町'});
+                                title: '六辻村'});
 
 lyr__0.setVisible(true);lyr__1.setVisible(true);lyr__2.setVisible(true);lyr__3.setVisible(true);lyr__4.setVisible(true);lyr__5.setVisible(true);lyr__6.setVisible(true);lyr__7.setVisible(true);lyr__8.setVisible(true);lyr__9.setVisible(true);lyr__10.setVisible(true);lyr__11.setVisible(true);lyr__12.setVisible(true);lyr__13.setVisible(true);lyr__14.setVisible(true);lyr__15.setVisible(true);
 var layersList = [lyr__0,lyr__1,lyr__2,lyr__3,lyr__4,lyr__5,lyr__6,lyr__7,lyr__8,lyr__9,lyr__10,lyr__11,lyr__12,lyr__13,lyr__14,lyr__15];
