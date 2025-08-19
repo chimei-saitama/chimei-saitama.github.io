@@ -239,14 +239,14 @@ var lyr__15 = new ol.layer.Vector({
 var group_ = new ol.layer.Group({
                                 layers: [],
                                 fold: 'open',
-                                title: '芝村'});
-var group_ = new ol.layer.Group({
-                                layers: [],
-                                fold: 'open',
-                                title: 'その他'});
+                                title: '土合村'});
 var group_ = new ol.layer.Group({
                                 layers: [],
                                 fold: 'close',
+                                title: 'その他'});
+var group_ = new ol.layer.Group({
+                                layers: [],
+                                fold: 'open',
                                 title: '浦和町'});
 var group_ = new ol.layer.Group({
                                 layers: [],
@@ -254,7 +254,7 @@ var group_ = new ol.layer.Group({
                                 title: '木崎村'});
 var group_ = new ol.layer.Group({
                                 layers: [],
-                                fold: 'open',
+                                fold: 'close',
                                 title: '谷田村'});
 var group_ = new ol.layer.Group({
                                 layers: [],
@@ -262,7 +262,7 @@ var group_ = new ol.layer.Group({
                                 title: '三室村'});
 var group_ = new ol.layer.Group({
                                 layers: [],
-                                fold: 'open',
+                                fold: 'close',
                                 title: '尾間木村'});
 var group_ = new ol.layer.Group({
                                 layers: [],
@@ -292,6 +292,10 @@ var group_ = new ol.layer.Group({
                                 layers: [],
                                 fold: 'close',
                                 title: '横曽根村'});
+var group_ = new ol.layer.Group({
+                                layers: [],
+                                fold: 'close',
+                                title: '芝村'});
 var group_ = new ol.layer.Group({
                                 layers: [],
                                 fold: 'close',
