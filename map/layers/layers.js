@@ -239,14 +239,18 @@ var lyr__15 = new ol.layer.Vector({
 var group_ = new ol.layer.Group({
                                 layers: [],
                                 fold: 'open',
-                                title: '土合村'});
+                                title: '笹目村'});
+var group_ = new ol.layer.Group({
+                                layers: [],
+                                fold: 'open',
+                                title: '美谷本村'});
 var group_ = new ol.layer.Group({
                                 layers: [],
                                 fold: 'close',
                                 title: 'その他'});
 var group_ = new ol.layer.Group({
                                 layers: [],
-                                fold: 'open',
+                                fold: 'close',
                                 title: '浦和町'});
 var group_ = new ol.layer.Group({
                                 layers: [],
@@ -266,8 +270,12 @@ var group_ = new ol.layer.Group({
                                 title: '尾間木村'});
 var group_ = new ol.layer.Group({
                                 layers: [],
-                                fold: 'close',
+                                fold: 'open',
                                 title: '六辻村'});
+var group_ = new ol.layer.Group({
+                                layers: [],
+                                fold: 'open',
+                                title: '土合村'});
 var group_ = new ol.layer.Group({
                                 layers: [],
                                 fold: 'close',
