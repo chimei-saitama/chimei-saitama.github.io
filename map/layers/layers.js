@@ -238,11 +238,15 @@ var lyr__15 = new ol.layer.Vector({
             });
 var group_ = new ol.layer.Group({
                                 layers: [],
+                                fold: 'open',
+                                title: '作業用'});
+var group_ = new ol.layer.Group({
+                                layers: [],
                                 fold: 'close',
                                 title: 'その他'});
 var group_ = new ol.layer.Group({
                                 layers: [],
-                                fold: 'close',
+                                fold: 'open',
                                 title: '浦和町'});
 var group_ = new ol.layer.Group({
                                 layers: [],
@@ -302,15 +306,15 @@ var group_ = new ol.layer.Group({
                                 title: '蕨町'});
 var group_ = new ol.layer.Group({
                                 layers: [],
-                                fold: 'open',
+                                fold: 'close',
                                 title: '戸田村'});
 var group_ = new ol.layer.Group({
                                 layers: [],
-                                fold: 'open',
+                                fold: 'close',
                                 title: '美谷本村'});
 var group_ = new ol.layer.Group({
                                 layers: [],
-                                fold: 'open',
+                                fold: 'close',
                                 title: '笹目村'});
 
 lyr__0.setVisible(true);lyr__1.setVisible(true);lyr__2.setVisible(true);lyr__3.setVisible(true);lyr__4.setVisible(true);lyr__5.setVisible(true);lyr__6.setVisible(true);lyr__7.setVisible(true);lyr__8.setVisible(true);lyr__9.setVisible(true);lyr__10.setVisible(true);lyr__11.setVisible(true);lyr__12.setVisible(true);lyr__13.setVisible(true);lyr__14.setVisible(true);lyr__15.setVisible(true);
