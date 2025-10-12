@@ -302,6 +302,10 @@ var group_ = new ol.layer.Group({
                                 title: '横曽根村'});
 var group_ = new ol.layer.Group({
                                 layers: [],
+                                fold: 'open',
+                                title: '青木村'});
+var group_ = new ol.layer.Group({
+                                layers: [],
                                 fold: 'close',
                                 title: '芝村'});
 var group_ = new ol.layer.Group({
@@ -314,7 +318,7 @@ var group_ = new ol.layer.Group({
                                 title: '戸田村'});
 var group_ = new ol.layer.Group({
                                 layers: [],
-                                fold: 'open',
+                                fold: 'close',
                                 title: '美谷本村'});
 var group_ = new ol.layer.Group({
                                 layers: [],
