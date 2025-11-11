@@ -242,7 +242,7 @@ var group_ = new ol.layer.Group({
                                 title: '作業用'});
 var group_ = new ol.layer.Group({
                                 layers: [],
-                                fold: 'open',
+                                fold: 'close',
                                 title: '内間木村'});
 var group_ = new ol.layer.Group({
                                 layers: [],
@@ -250,7 +250,7 @@ var group_ = new ol.layer.Group({
                                 title: 'その他'});
 var group_ = new ol.layer.Group({
                                 layers: [],
-                                fold: 'open',
+                                fold: 'close',
                                 title: '浦和町'});
 var group_ = new ol.layer.Group({
                                 layers: [],
@@ -307,6 +307,10 @@ var group_ = new ol.layer.Group({
 var group_ = new ol.layer.Group({
                                 layers: [],
                                 fold: 'close',
+                                title: '南平柳村'});
+var group_ = new ol.layer.Group({
+                                layers: [],
+                                fold: 'close',
                                 title: '芝村'});
 var group_ = new ol.layer.Group({
                                 layers: [],
@@ -326,11 +330,11 @@ var group_ = new ol.layer.Group({
                                 title: '笹目村'});
 var group_ = new ol.layer.Group({
                                 layers: [],
-                                fold: 'open',
+                                fold: 'close',
                                 title: '志木町'});
 var group_ = new ol.layer.Group({
                                 layers: [],
-                                fold: 'open',
+                                fold: 'close',
                                 title: '宗岡村'});
 
 lyr__0.setVisible(true);lyr__1.setVisible(true);lyr__2.setVisible(true);lyr__3.setVisible(true);lyr__4.setVisible(true);lyr__5.setVisible(true);lyr__6.setVisible(true);lyr__7.setVisible(true);lyr__8.setVisible(true);lyr__9.setVisible(true);lyr__10.setVisible(true);lyr__11.setVisible(true);lyr__12.setVisible(true);lyr__13.setVisible(true);lyr__14.setVisible(true);lyr__15.setVisible(true);
