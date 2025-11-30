@@ -238,7 +238,15 @@ var lyr__15 = new ol.layer.Vector({
             });
 var group_ = new ol.layer.Group({
                                 layers: [],
-                                fold: 'open',
+                                fold: 'close',
+                                title: '新倉村'});
+var group_ = new ol.layer.Group({
+                                layers: [],
+                                fold: 'close',
+                                title: '白子村'});
+var group_ = new ol.layer.Group({
+                                layers: [],
+                                fold: 'close',
                                 title: 'その他'});
 var group_ = new ol.layer.Group({
                                 layers: [],
@@ -274,7 +282,7 @@ var group_ = new ol.layer.Group({
                                 title: '与野町'});
 var group_ = new ol.layer.Group({
                                 layers: [],
-                                fold: 'close',
+                                fold: 'open',
                                 title: '大宮町'});
 var group_ = new ol.layer.Group({
                                 layers: [],
@@ -282,7 +290,7 @@ var group_ = new ol.layer.Group({
                                 title: '三橋村'});
 var group_ = new ol.layer.Group({
                                 layers: [],
-                                fold: 'close',
+                                fold: 'open',
                                 title: '日進村'});
 var group_ = new ol.layer.Group({
                                 layers: [],
@@ -330,16 +338,16 @@ var group_ = new ol.layer.Group({
                                 title: '宗岡村'});
 var group_ = new ol.layer.Group({
                                 layers: [],
-                                fold: 'open',
+                                fold: 'close',
                                 title: '膝折村'});
 var group_ = new ol.layer.Group({
                                 layers: [],
-                                fold: 'open',
+                                fold: 'close',
                                 title: '内間木村'});
 
 lyr__0.setVisible(true);lyr__1.setVisible(true);lyr__2.setVisible(true);lyr__3.setVisible(true);lyr__4.setVisible(true);lyr__5.setVisible(true);lyr__6.setVisible(true);lyr__7.setVisible(true);lyr__8.setVisible(true);lyr__9.setVisible(true);lyr__10.setVisible(true);lyr__11.setVisible(true);lyr__12.setVisible(true);lyr__13.setVisible(true);lyr__14.setVisible(true);lyr__15.setVisible(true);
 var layersList = [lyr__0,lyr__1,lyr__2,lyr__3,lyr__4,lyr__5,lyr__6,lyr__7,lyr__8,lyr__9,lyr__10,lyr__11,lyr__12,lyr__13,lyr__14,lyr__15];
-lyr__1.set('fieldAliases', {'id': 'id', 'name': 'name', 'start': 'start', 'end': 'end', 'info1': 'info1', 'info2': 'info2', 'info3': 'info3', 'link': 'link', });
+lyr__1.set('fieldAliases', {'id': 'id', 'area1': 'area1', 'area2': 'area2', 'name': 'name', 'start': 'start', 'end': 'end', 'info1': 'info1', 'info2': 'info2', 'info3': 'info3', 'link': 'link', 'uniqid': 'uniqid', });
 lyr__2.set('fieldAliases', {'id': 'id', 'start': 'start', 'end': 'end', 'info': 'info', });
 lyr__3.set('fieldAliases', {'id': 'id', 'start': 'start', 'end': 'end', });
 lyr__4.set('fieldAliases', {'id': 'id', 'name': 'name', 'start': 'start', 'end': 'end', 'info': 'info', });
@@ -354,7 +362,7 @@ lyr__12.set('fieldAliases', {'id': 'id', 'start': 'start', 'end': 'end', 'info':
 lyr__13.set('fieldAliases', {'id': 'id', 'start': 'start', 'end': 'end', });
 lyr__14.set('fieldAliases', {'id': 'id', 'name': 'name', 'start': 'start', 'end': 'end', 'info': 'info', });
 lyr__15.set('fieldAliases', {'id': 'id', 'start': 'start', 'end': 'end', });
-lyr__1.set('fieldImages', {'id': 'TextEdit', 'name': 'TextEdit', 'start': 'Range', 'end': 'Range', 'info1': 'TextEdit', 'info2': 'TextEdit', 'info3': 'TextEdit', 'link': 'TextEdit', });
+lyr__1.set('fieldImages', {'id': 'TextEdit', 'area1': 'TextEdit', 'area2': 'TextEdit', 'name': 'TextEdit', 'start': 'Range', 'end': 'Range', 'info1': 'TextEdit', 'info2': 'TextEdit', 'info3': 'TextEdit', 'link': 'TextEdit', 'uniqid': 'TextEdit', });
 lyr__2.set('fieldImages', {'id': 'TextEdit', 'start': 'Range', 'end': 'Range', 'info': 'TextEdit', });
 lyr__3.set('fieldImages', {'id': 'TextEdit', 'start': 'Range', 'end': 'Range', });
 lyr__4.set('fieldImages', {'id': 'TextEdit', 'name': 'TextEdit', 'start': 'Range', 'end': 'Range', 'info': 'TextEdit', });
@@ -367,9 +375,9 @@ lyr__10.set('fieldImages', {'id': 'TextEdit', 'name': 'TextEdit', 'start': 'Rang
 lyr__11.set('fieldImages', {'id': 'TextEdit', 'start': 'Range', 'end': 'Range', });
 lyr__12.set('fieldImages', {'id': 'TextEdit', 'start': 'Range', 'end': 'Range', 'info': '', });
 lyr__13.set('fieldImages', {'id': 'TextEdit', 'start': 'Range', 'end': 'Range', });
-lyr__14.set('fieldImages', {'id': 'TextEdit', 'name': 'TextEdit', 'start': 'Range', 'end': 'Range', 'info': 'TextEdit', });
+lyr__14.set('fieldImages', {'id': 'TextEdit', 'name': 'TextEdit', 'start': 'Range', 'end': 'Range', 'info': '', });
 lyr__15.set('fieldImages', {'id': 'TextEdit', 'start': 'Range', 'end': 'Range', });
-lyr__1.set('fieldLabels', {'id': 'hidden field', 'name': 'no label', 'start': 'hidden field', 'end': 'hidden field', 'info1': 'no label', 'info2': 'no label', 'info3': 'no label', 'link': 'no label', });
+lyr__1.set('fieldLabels', {'id': 'hidden field', 'area1': 'hidden field', 'area2': 'hidden field', 'name': 'no label', 'start': 'hidden field', 'end': 'hidden field', 'info1': 'no label', 'info2': 'no label', 'info3': 'no label', 'link': 'no label', 'uniqid': 'hidden field', });
 lyr__2.set('fieldLabels', {'id': 'hidden field', 'start': 'hidden field', 'end': 'hidden field', 'info': 'no label', });
 lyr__3.set('fieldLabels', {'id': 'no label', 'start': 'no label', 'end': 'no label', });
 lyr__4.set('fieldLabels', {'id': 'hidden field', 'name': 'no label', 'start': 'hidden field', 'end': 'hidden field', 'info': 'no label', });

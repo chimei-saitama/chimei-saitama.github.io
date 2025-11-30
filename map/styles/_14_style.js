@@ -9,7 +9,7 @@ var style__14 = function(feature, resolution){
     
     var labelText = ""; 
     var value = feature.get("");
-    var labelFont = "18.2px \'Open Sans\', sans-serif";
+    var labelFont = "23.400000000000002px \'Open Sans\', sans-serif";
     var labelFill = "#007f00";
     var bufferColor = "";
     var bufferWidth = 0;
@@ -17,7 +17,7 @@ var style__14 = function(feature, resolution){
     var offsetX = 0;
     var offsetY = 0;
     var placement = 'point';
-    if (feature.get("name") !== null && resolution > 0 && resolution < 14) {
+    if (feature.get("name") !== null && resolution > 0 && resolution < 28) {
         labelText = String(feature.get("name"));
     }
     var style = [ new ol.style.Style({
