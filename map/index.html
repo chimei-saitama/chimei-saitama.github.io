@@ -243,63 +243,82 @@
             }
         });
 
-        var layerConfigs = [
-            { id: 'lyr__1', layer: lyr__1, style: style__1, originalFeatures: lyr__1.getSource().getFeatures() },
-            { id: 'lyr__2', layer: lyr__2, style: style__2, originalFeatures: lyr__2.getSource().getFeatures() },
-            { id: 'lyr__3', layer: lyr__3, style: style__3, originalFeatures: lyr__3.getSource().getFeatures() },
-            { id: 'lyr__4', layer: lyr__4, style: style__4, originalFeatures: lyr__4.getSource().getFeatures() },
-            { id: 'lyr__5', layer: lyr__5, style: style__5, originalFeatures: lyr__5.getSource().getFeatures() },
-            { id: 'lyr__6', layer: lyr__6, style: style__6, originalFeatures: lyr__6.getSource().getFeatures() },
-            { id: 'lyr__7', layer: lyr__7, style: style__7, originalFeatures: lyr__7.getSource().getFeatures() },
-            { id: 'lyr__8', layer: lyr__8, style: style__8, originalFeatures: lyr__8.getSource().getFeatures() },
-            { id: 'lyr__9', layer: lyr__9, style: style__9, originalFeatures: lyr__9.getSource().getFeatures() },
-            { id: 'lyr__10', layer: lyr__10, style: style__10, originalFeatures: lyr__10.getSource().getFeatures() },
-            { id: 'lyr__11', layer: lyr__11, style: style__11, originalFeatures: lyr__11.getSource().getFeatures() },
-            { id: 'lyr__12', layer: lyr__12, style: style__12, originalFeatures: lyr__12.getSource().getFeatures() },
-            { id: 'lyr__13', layer: lyr__13, style: style__13, originalFeatures: lyr__13.getSource().getFeatures() },
-            { id: 'lyr__14', layer: lyr__14, style: style__14, originalFeatures: lyr__14.getSource().getFeatures() },
-            { id: 'lyr__15', layer: lyr__15, style: style__15, originalFeatures: lyr__15.getSource().getFeatures() }]
-        filterLayer()
+    // 現在の表示年（スタイル関数から参照）
+    let currentYear = Number(year_slider.value);
 
-        function filterLayer() {
-            var year = Number(year_slider.value);
+    // start/end, start2/end2 のどちらかに入っていれば表示
+    function isActiveByYear(feature, year) {
+        if (isNaN(year)) return false;
 
-            layerConfigs.forEach(function (config) {
+        function inRange(startKey, endKey) {
+            const rawS = feature.get(startKey);
+            const rawE = feature.get(endKey);
 
-                var filtered = config.originalFeatures.filter(function (feature) {
-                    var start = Number(feature.get("start"));
-                    var end = Number(feature.get("end"));
-                    if (end == 0) { end = 9999 }
-                    return !isNaN(year) && year >= start && year < end;
-                });
+            const start = Number(rawS);
+            let end = Number(rawE);
 
-                var newSource = new ol.source.Vector({
-                    features: filtered
-                });
+            // start 必須
+            if (!rawS || isNaN(start) || start === 0) return false;
 
-                var newLayer = new ol.layer.Vector({
-                    source: newSource,
-                    style: config.style
-                });
+            // end 省略可（現在まで）
+            if (!rawE || isNaN(end) || end === 0) end = 9999;
 
-                // ポップアップ処理を追加
-                if (config.layer.get('interactive') == true) {
-                    newLayer.set('fieldLabels', config.layer.get('fieldLabels'));
-                    newLayer.set('fieldAliases', config.layer.get('fieldAliases')); // なくても動作する
-                    newLayer.set('fieldImages', config.layer.get('fieldImages'));
-                    newLayer.set('popuplayertitle', ''); // レイヤ名を表示しない
-                    newLayer.set('interactive', true);
-                    // 以下のコードを入れるとポップアップ内容が二重に表示される
-                    //newLayer.getSource().getFeatures().forEach(function(feature) {
-                    //feature.set('popupContent', `<table>${createPopupField(feature, feature.getKeys(), config.layer)}</table>`);
-                    //});
-                }
+            return year >= start && year < end;
+    }
 
-                map.removeLayer(config.layer);
-                map.addLayer(newLayer);
-                config.layer = newLayer;
-            });
-        }
+    // 第1期間 OR 第2期間
+    return inRange("start", "end") || inRange("start2", "end2");
+    }
+
+    // 既存スタイル（style__1 など）を年フィルタ付きにラップする
+    function wrapStyleWithYearFilter(baseStyle) {
+    return function(feature, resolution) {
+        const active = isActiveByYear(feature, currentYear);
+
+        // ラベル用（あなたの createTextStyle は feature.hide を見ている）
+        feature.hide = !active;
+
+        // 地物自体を描画しない（点・線・面すべてに効く）
+        if (!active) return null;
+
+        // 元のスタイルを返す（元が配列/単体どちらでもOK）
+        return baseStyle(feature, resolution);
+    };
+    }
+
+    // レイヤ一覧：元の style を保持して、layer.setStyle() で差し替える
+    var layerConfigs = [
+    { layer: lyr__1,  baseStyle: style__1  },
+    { layer: lyr__2,  baseStyle: style__2  },
+    { layer: lyr__3,  baseStyle: style__3  },
+    { layer: lyr__4,  baseStyle: style__4  },
+    { layer: lyr__5,  baseStyle: style__5  },
+    { layer: lyr__6,  baseStyle: style__6  },
+    { layer: lyr__7,  baseStyle: style__7  },
+    { layer: lyr__8,  baseStyle: style__8  },
+    { layer: lyr__9,  baseStyle: style__9  },
+    { layer: lyr__10, baseStyle: style__10 },
+    { layer: lyr__11, baseStyle: style__11 },
+    { layer: lyr__12, baseStyle: style__12 },
+    { layer: lyr__13, baseStyle: style__13 },
+    { layer: lyr__14, baseStyle: style__14 },
+    { layer: lyr__15, baseStyle: style__15 }
+    ];
+
+    // 初期化：全レイヤのスタイルを差し替え
+    layerConfigs.forEach(cfg => {
+        cfg.layer.setStyle(wrapStyleWithYearFilter(cfg.baseStyle));
+        cfg.layer.set('popuplayertitle', ''); // レイヤ名を表示しない
+    });
+
+    // 年変更時：再描画（レイヤ再生成はしない）
+    function filterLayer() {
+    currentYear = Number(year_slider.value);
+    layerConfigs.forEach(cfg => cfg.layer.changed());
+    }
+
+    // 初期反映
+    filterLayer();
 
     </script>
     <!-- ここまで -->
