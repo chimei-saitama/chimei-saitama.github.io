@@ -17,8 +17,8 @@ var style__4 = function(feature, resolution){
     var offsetX = 0;
     var offsetY = 0;
     var placement = 'point';
-    if (feature.get("町マスター_name") !== null && resolution > 0 && resolution < 14) {
-        labelText = String(feature.get("町マスター_name"));
+    if (feature.get("name") !== null && resolution > 0 && resolution < 14) {
+        labelText = String(feature.get("name"));
     }
     var style = [ new ol.style.Style({
         image: new ol.style.Circle({radius: 0.0 + size,
