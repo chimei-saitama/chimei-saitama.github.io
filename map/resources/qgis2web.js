@@ -8,8 +8,60 @@ var map = new ol.Map({
     })
 });
 
+
+// 地物の上に来たらカーソルを変える（全レイヤ対象）
+const targetLayers = [ // 反応させたい点レイヤ（複数OK）
+    lyr___1, lyr___2, lyr___3, lyr___4, lyr___5, lyr___6, lyr___8, lyr___11, lyr___13
+];
+
+const POINT_HIT_RADIUS_PX = 10; // 「点からこの距離(px)以内なら “点の上” とみなす」
+
+map.on('pointermove', function (evt) {
+  if (evt.dragging) return;
+
+  const pixel = evt.pixel;
+  let onPoint = false;
+
+  // まずは “何かに当たった地物” を拾う（ここではラベルに当たる可能性がある）
+  map.forEachFeatureAtPixel(
+    pixel,
+    function (feature, layer) {
+      if (!targetLayers.includes(layer)) return false;
+
+      const geom = feature.getGeometry();
+      if (!geom) return false;
+
+      // ポイント地物（Point）前提。もしMultiPoint等なら調整してください
+      const coord = geom.getType() === 'Point'
+        ? geom.getCoordinates()
+        : geom.getClosestPoint(evt.coordinate);
+
+      // 点座標をピクセルへ
+      const p = map.getPixelFromCoordinate(coord);
+
+      // ピクセル距離で「点の近く」か判定
+      const dx = pixel[0] - p[0];
+      const dy = pixel[1] - p[1];
+      if ((dx * dx + dy * dy) <= (POINT_HIT_RADIUS_PX * POINT_HIT_RADIUS_PX)) {
+        onPoint = true;
+        return true; // ここで探索終了
+      }
+
+      return false;
+    },
+    {
+      // ここは “拾う” 側なので少し広めでもOK（文字も拾うが後で落とす）
+      hitTolerance: 8,
+      layerFilter: (layer) => targetLayers.includes(layer),
+    }
+  );
+
+  map.getTargetElement().style.cursor = onPoint ? 'pointer' : '';
+});
+
+
 //initial view - epsg:3857 coordinates if not "Match project CRS"
-map.getView().fit([15531773.453611, 4272066.452540, 15557733.765550, 4285527.920944], map.getSize());
+map.getView().fit([15535640.519764, 4275443.347318, 15554397.301754, 4283015.441068], map.getSize());
 
 ////small screen definition
     var hasTouchScreen = map.getViewport().classList.contains('ol-touch');
@@ -196,7 +248,7 @@ function onPointerMove(evt) {
                         currentFeature = clusteredFeatures[n];
                         currentFeatureKeys = currentFeature.getKeys();
                         popupText += '<li><table>'
-                        popupText += '<a>' + '<b>' + layer.get('popuplayertitle') + '</b>' + '</a>';
+                        popupText += '<a>' + '<b>' + currentFeature.get("popup_title") + '</b>' + '</a>';
                         popupText += createPopupField(currentFeature, currentFeatureKeys, layer);
                         popupText += '</table></li>';    
                     }
@@ -205,7 +257,7 @@ function onPointerMove(evt) {
                 currentFeatureKeys = currentFeature.getKeys();
                 if (doPopup) {
                     popupText += '<li><table>';
-                    popupText += '<a>' + '<b>' + layer.get('popuplayertitle') + '</b>' + '</a>';
+                    popupText += '<a>' + '<b>' + currentFeature.get("popup_title") + '</b>' + '</a>';
                     popupText += createPopupField(currentFeature, currentFeatureKeys, layer);
                     popupText += '</table></li>';
                 }
@@ -334,7 +386,7 @@ function onSingleClickFeatures(evt) {
                         currentFeature = clusteredFeatures[n];
                         currentFeatureKeys = currentFeature.getKeys();
                         popupText += '<li><table>';
-                        popupText += '<a><b>' + layer.get('popuplayertitle') + '</b></a>';
+                        popupText += '<a><b>' + currentFeature.get("popup_title") + '</b></a>';
                         popupText += createPopupField(currentFeature, currentFeatureKeys, layer);
                         popupText += '</table></li>';    
                     }
@@ -343,13 +395,16 @@ function onSingleClickFeatures(evt) {
                 currentFeatureKeys = currentFeature.getKeys();
                 if (doPopup) {
                     popupText += '<li><table>';
-                    popupText += '<a><b>' + layer.get('popuplayertitle') + '</b></a>';
+                    popupText += '<a><b>' + currentFeature.get("popup_title") + '</b></a>';
                     popupText += createPopupField(currentFeature, currentFeatureKeys, layer);
                     popupText += '</table>';
                 }
             }
         }
+    }, {
+        hitTolerance: 10   // ← ここを追加
     });
+    
     if (popupText === '<ul>') {
         popupText = '';
     } else {
